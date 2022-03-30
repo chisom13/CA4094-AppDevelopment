@@ -1,0 +1,45 @@
+<main class=" mb-4">
+    <div class="flex justify-between items-center py-3 px-6 border-b-2">
+        <div class="flex flex-col">
+            <!-- Filter Buttons To Allow Filtering Of Products-->
+            <h3 class="font-semibold">Filter Through Our Products Here:</h3>
+            <div class="indicator flex space-x-0">
+                <button data-filter="All" onclick="FilterProduct('All')" class="bg-purple text-white border px-3 hover:bg-yellow-400 hover:text-black transition duration-500 ease-in-out">All</button>
+                <button data-filter="NIKE" onclick="FilterProduct('NIKE')" class="bg-purple text-white border px-3 hover:bg-yellow-400 hover:text-black transition duration-500 ease-in-out">Nike</button>
+                <button data-filter="JORDAN" onclick="FilterProduct('JORDAN')" class="bg-purple text-white border px-3 hover:bg-yellow-400 hover:text-black transition duration-500 ease-in-out">Jordan</button>
+                <button data-filter="ADIDAS" onclick="FilterProduct('ADIDAS')" class="bg-purple text-white border px-3 hover:bg-yellow-400 hover:text-black transition duration-500 ease-in-out">Adidas</button>
+                <button data-filter="CONVERSE" onclick="FilterProduct('CONVERSE')" class="bg-purple text-white border px-3 hover:bg-yellow-400 hover:text-black transition duration-500 ease-in-out">Converse</button>
+            </div>
+        </div>
+        <div class="filter-condition">
+            <!-- Sorting Option For Products-->
+            <span class="font-semibold">View As</span>
+            <select name="" id="select" class="text-purple border-2">
+                <option value="default">Default</option>
+                <option value="lowToHigh">Price (Low to High)</option>
+                <option value="highToLow">Price (High to Low)</option>
+            </select>
+        </div>
+    </div>
+    <div class="container mx-auto px-12">
+        <div class="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-6" id="items">
+            <!-- Products are created in this grid -->
+            <!-- For each product in the database a grid item is created-->
+            <% products.forEach(function(product, index) { %>
+                <div class="w-full max-w-sm mx-auto rounded-md transform duration-500 ease-in-out hover:scale-110 overflow-hidden box_items" data-price="<%- product.price %>" data-category="<%- product.type %>">
+                    <a href="/products/<%- product.id %>">
+                        <div class="flex items-end justify-center h-auto w-full">
+                            <img src="<%- product.product_image %>" alt="">
+                        </div>
+                        <div class="px-5 py-3 text-center overflow-elbuttonpsis">
+                            <h4 class="text-gray-700 uppercase text-sm"><%- product.name %></h4>
+                            <span class="text-gray-500 mt-2 text-sm">€<%- product.price %></span>
+                        </div>
+                    </a>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</main>
+<script src="/javascripts/sort-items.js"></script>
+<script src="/javascripts/filter-items.js"></script>

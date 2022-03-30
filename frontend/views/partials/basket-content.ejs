@@ -1,0 +1,47 @@
+<div class="px-8">
+    <div class="py-4">
+        <button class="p-2 text-sm border-2 font-semibold rounded hover:bg-purple hover:text-white hover:border-gray-200 transition duration-500 ease-in-out">Continue Shopping</button>
+    </div>
+    <!-- View of Basket -->
+    <div class="border">
+        <div class="flex flex-row justify-between px-3 py-2 bg-gray-200 text-sm">
+            <span class="mr-36">Your Order Details</span>
+            <span class="ml-10">Quantity</span>
+            <span>Price</span>
+            <span>Total</span>
+        </div>
+        <!-- Basket items are outputted here -->
+        <div class="px-3 py-2 flex flex-col" id="basketItems">
+            
+        </div>
+        <div class="flex border-t p-3 items-center text-sm">
+            <i class="fas fa-exclamation-circle pr-2"></i>
+            <p>Items placed in this basket are not reserved.</p>
+        </div>
+    </div>
+    <!-- Lower section of basket which leads users to the checkout page -->
+    <div class="flex pt-8 justify-between">
+        <div class="block text-sm pr-4">
+            <h3 class="font-semibold text-xl">Discount Code</h3>
+            <input class="border p-4 " type="text" name="discountCode" id="discountCodeCheckout" placeholder="Enter code here…" title="Enter discount code" couponinputbound="true">
+            <button class="p-4 bg-purple text-white" type="submit" name="signup" id="applyDiscountButtonCheckout" title="Submit code" value="Apply">Apply
+            </button>
+        </div>
+        <div class="pl-4 w-auto">
+            <!-- Total of the basket is caulated and outputted here -->
+            <div class="flex justify-between p-5 text-2xl" id="totalBasket">
+
+            </div>
+            <div class="p-5 text-sm">
+                <p class="border-b border-t p-3">Shipping & taxes calculated at checkout.</p>
+            </div>
+            <div class="p-5 text-sm">
+                <button class="p-2 bg-yellow-400 rounded-md" onclick="location.href='/checkout'">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/javascripts/create-basket.js"></script>
+<script src="/javascripts/total-basket.js"></script>
+<script src="/javascripts/add-to-cart.js"></script>
+<script src="/javascripts/remove-from-cart.js"></script>

@@ -1,0 +1,130 @@
+<!-- Swiper -->
+<div class="content-container">
+    <!-- New Releases Section -->
+    <div class="swiper-button-next" id="next1"></div>
+    <div class="swiper-button-prev" id="prev1"></div>
+    <div class="swiper mySwiper overflow-visible">
+        <h3 class="pt-6 text-xl font-semibold underline">New Releases</h3>
+        <div class="swiper-wrapper flex items-center md:min-h-1/2 min-h-3/4 ">
+            <% products.forEach(function(product, index) { %>
+                <div class="swiper-slide hover:opacity-60 p-1">
+                    <a href="/products/<%- product.id %>">
+                        <img src="<%- product.product_image %>" alt="">
+                        <div class="card-description">
+                            <h4><%- product.name %></h4>
+                            <p>€<%- product.price %></p>
+                        </div>
+                    </a>
+                </div>
+            <% }) %>
+            <!-- pagination section -->
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+<div class="content-container">
+    <!-- Top Kicks Section -->
+    <div class="swiper-button-next" id="next2"></div>
+    <div class="swiper-button-prev" id="prev2"></div>
+    <div class="swiper mySwiper2 overflow-visible">
+        <h3 class="pt-6 text-xl font-semibold underline">Top Kicks</h3>
+        <div class="swiper-wrapper flex items-center md:min-h-1/2 min-h-3/4">
+            <% products.forEach(function(product, index) { %>
+                <div class="swiper-slide hover:opacity-60 p-1">
+                    <a href="/products/<%- product.id %>">
+                        <img src="<%- product.product_image %>" alt="">
+                        <div class="card-description">
+                            <h4><%- product.name %></h4>
+                            <p>€<%- product.price %></p>
+                        </div>
+                    </a>
+                </div>
+            <% }) %>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+    // First Slider 
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 10,
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: "#next1",
+      prevEl: "#prev1",
+    },
+
+    // Breakpoints for amount of slides displayed
+    breakpoints: {
+        640: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+        slidesPerGroup: 2,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        },
+        768: {
+        slidesPerView: 3,
+        spaceBetween: 25,
+        slidesPerGroup: 3,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        },
+        920: {
+        slidesPerView: 4,
+        spaceBetween: 30,
+        slidesPerGroup: 4,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        },
+    },
+  });
+  // Second Slider
+  var swiper2 = new Swiper(".mySwiper2", {
+    slidesPerView: 1,
+    spaceBetween: 10,
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: "#next2",
+      prevEl: "#prev2",
+    },
+
+    // Breakpoints for amount of slides displayed
+    breakpoints: {
+        640: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+        slidesPerGroup: 2,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        },
+        768: {
+        slidesPerView: 3,
+        spaceBetween: 25,
+        slidesPerGroup: 3,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        },
+        920: {
+        slidesPerView: 4,
+        spaceBetween: 30,
+        slidesPerGroup: 4,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        },
+    },
+  });
+</script>

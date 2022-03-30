@@ -1,0 +1,38 @@
+<main class=" mb-4">
+    <div class="flex justify-between items-center py-3 px-6 border-b-2">
+        <div class="flex items-center space-x-3">
+            <!-- User's search Query -->
+            <h3 class="font-bold text-xl underline">You Searched For: </h3>
+            <span class="font-semibold text-purple text-lg uppercase">"<%- search %>"</span>
+        </div>
+        <div class="filter-condition">
+            <!-- Sorting Option For Products-->
+            <span class="font-semibold">View As</span>
+            <select name="" id="select" class="text-purple border-2">
+                <option value="default">Default</option>
+                <option value="lowToHigh">Price (Low to High)</option>
+                <option value="highToLow">Price (High to Low)</option>
+            </select>
+        </div>
+    </div>
+    <div class="container mx-auto px-12">
+        <div class="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-6" id="items">
+            <!-- Searched products -->
+            <!-- For each product in the database a grid item is created-->
+            <% products.forEach(function(product, index) { %>
+                <div class="w-full max-w-sm mx-auto rounded-md transform duration-500 ease-in-out hover:scale-110 overflow-hidden" data-price="<%- product.price %>" data-category="<%- product.type %>">
+                    <a href="/products/<%- product.id %>">
+                        <div class="flex items-end justify-center h-auto w-full">
+                            <img src="<%- product.product_image %>" alt="">
+                        </div>
+                        <div class="px-5 py-3 text-center overflow-elbuttonpsis">
+                            <h4 class="text-gray-700 uppercase text-sm"><%- product.name %></h4>
+                            <span class="text-gray-500 mt-2 text-sm">€<%- product.price %></span>
+                        </div>
+                    </a>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</main>
+<script src="/javascripts/sort-items.js"></script>

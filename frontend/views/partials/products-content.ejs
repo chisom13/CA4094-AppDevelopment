@@ -1,0 +1,45 @@
+<main class="my-8 mx-8">
+    <div class="bg-gray-100 mx-auto p-10 rounded-xl w-full flex flex-col sm:flex-row space-y-2 sm:space-y-0">
+        <!-- Product Images Displayed Here-->
+        <div class="w-full sm:w-2/3 grid grid-cols-4 gap-2 auto-rows-auto">
+            <img src="<%- product.product_image %>" alt="" class="col-start-1 col-end-5 bg-gray-300">
+            <img src="<%- product.product_image %>" alt="" class="bg-gray-300">
+            <img src="<%- product.product_image2 %>" alt="" class="bg-gray-300">
+            <img src="<%- product.product_image3 %>" alt="" class="bg-gray-300">
+            <img src="<%- product.product_image4 %>" alt="" class="bg-gray-300">
+        </div>
+        <!-- Product Details -->
+        <div class="w-full sm:w-1/3">
+            <div class="flex flex-col px-4 pb-8 pt-4 ml-0 sm:ml-8">
+                <h3 class="text-xl font-bold pt-2"><%- product.name %></h3>
+                <span class="text-l font-medium pt-2">€<%- product.price %></span>
+                <div class="flex pt-2">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+            <!-- Sizes -->
+            <div class="border-t ml-0 sm:ml-8 p-4">
+                <h3>Choose your size:</h3>
+                <div class="size_section max-w-xs text-sm space-y-1">
+                    <button class="btn hover:text-white h-6 w-6 md:h-8 md:w-8 border rounded-md border-gray-600 hover:bg-purple focus:bg-purple transition duration-500 ease-in-out">10</button>
+                    <button class="btn hover:text-white h-6 w-6 md:h-8 md:w-8 border rounded-md border-gray-600 hover:bg-purple focus:bg-purple transition duration-500 ease-in-out">9.5</button>
+                    <button class="btn hover:text-white h-6 w-6 md:h-8 md:w-8 border rounded-md border-gray-600 hover:bg-purple focus:bg-purple transition duration-500 ease-in-out">9</button>
+                    <button class="btn hover:text-white h-6 w-6 md:h-8 md:w-8 border rounded-md border-gray-600 hover:bg-purple focus:bg-purple transition duration-500 ease-in-out">8.5</button>
+                    <button class="btn hover:text-white h-6 w-6 md:h-8 md:w-8 border rounded-md border-gray-600 hover:bg-purple focus:bg-purple transition duration-500 ease-in-out">8</button>
+                    <button class="btn hover:text-white h-6 w-6 md:h-8 md:w-8 border rounded-md border-gray-600 hover:bg-purple focus:bg-purple transition duration-500 ease-in-out">7.5</button>
+                </div>
+            </div>
+            <!-- Add to cart function -->
+            <div class="ml-0 sm:ml-4 md:ml-8 p-4">
+                <button type="submit" onclick="addToCart('<%- product.id %>')" id="addToCart" class="bg-purple rounded-lg px-4 py-2 mt-3 text-white">
+                    <span>Add to Cart</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="/javascripts/add-to-cart.js"></script>
+</main>
